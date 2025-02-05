@@ -1,0 +1,20 @@
+from manim import *
+class WriteCircle(Scene) :
+    def construct(self):
+        c=Circle(radius=2,color=BLUE)
+        d=Dot()
+        t=MathTex("P").next_to(d,DR)
+        line=Line([2,0,0],[-2,0,0],color=GREEN)
+        line2=Line([2*0.866025,1,0],[-2*0.7071,-2*0.7071,0],color=GREEN)
+        line3=Line([2*0.98901,-2*0.1478,0],[2*0.84245,2*0.53877,0],color=GREEN)
+        self.play(Write(c))
+        self.play(Write(d))
+        self.wait()
+        self.play(Write(t),run_time=0.5)
+        self.wait()
+        self.play(Write(line))
+        self.wait()
+        self.play(Transform(line,line2))
+        self.wait()
+        self.play(Transform(line2,line3),FadeOut(line2))
+        self.wait()

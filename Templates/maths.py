@@ -1,0 +1,20 @@
+from manim import*
+class MATH(ThreeDScene):
+    def construct(self):
+        c=Circle(radius=2,color=BLUE)
+        po=Dot([0,0,0])
+        t=Text("O",font="Songti TC").next_to(po)
+        bm=Dot([2,0,1])
+        am=Dot([2,0,5])
+        a=Tex("A").next_to(bm)
+        b=Tex("B").next_to(am)
+        l1=Line([-2,0,1],[2,0,5],color=GREEN)
+        nb=ThreeDAxes()
+        a.next_to(bm)
+        b.next_to(am)
+        self.set_camera_orientation(phi=263 * DEGREES, theta=40 * DEGREES)
+        self.play(Write(l1,am,bm))
+        self.play(Write(a,b))
+        self.play(Write(t,po,c))
+        self.play(Write(nb))
+        self.begin_ambient_camera_rotation()
